@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRM"
         mc:Ignorable="d"
-        Title="Tu wstaw kreatywną nazwę" Height="616" Width="1050" Background="Black" ResizeMode="CanMinimize">
+        Title="Tu wstaw kreatywną nazwę" Height="750" Width="1600" Background="Black" ResizeMode="CanMinimize">
     <Grid>
-        <DockPanel Margin="0,0,0,560">
+        <DockPanel Margin="0,0,0,694">
             <Menu DockPanel.Dock="Top" VerticalAlignment="Top">
                 <MenuItem Header="_Klient">
                     <MenuItem Header="Dodaj" Click="AddClientClick"/>
@@ -27,20 +27,32 @@
         <Grid x:Name="Clients" Margin="0,40,0,0">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Margin="0,0,0,0">
                 <Grid>
-                    <StackPanel Margin="10,10,843,0" x:Name="NamePanel">
+                    <StackPanel Margin="10,10,1393,0" x:Name="NamePanel">
                         <Label Content="Imię" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel Margin="190,10,628,0" x:Name="LastNamePanel">
+                    <StackPanel Margin="190,10,1178,0" x:Name="LastNamePanel">
                         <Label Content="Nazwisko" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel Margin="405,10,343,0" x:Name="EmailPanel">
+                    <StackPanel Margin="405,10,893,0" x:Name="EmailPanel">
                         <Label Content="E-mail" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel Margin="690,10,173,0" x:Name="PhonePanel">
+                    <StackPanel Margin="690,10,723,0" x:Name="PhonePanel">
                         <Label Content="Numer Telefonu" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel Margin="860,10,10,0" x:Name="DepPanel">
+                    <StackPanel Margin="860,10,603,0" x:Name="DepPanel">
                         <Label Content="Dział" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="980,10,456,0" x:Name="FirPanel">
+                        <Label Content="Firma" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="1127,10,306,0" x:Name="ConPanel">
+                        <Label Content="Nr. Umowy" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="1277,10,156,0" x:Name="TitlePanel">
+                        <Label Content="Temat" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="1423,10,10,0" x:Name="TimePanel">
+                        <Label Content="Czas opracowania" Foreground="White" Background="#FF303030" HorizontalContentAlignment="Center"/>
                     </StackPanel>
                 </Grid>
             </ScrollViewer>

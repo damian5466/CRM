@@ -20,6 +20,7 @@ namespace CRM
     {
         public static MainWindow Instance { get; private set; }
         public static AddClient AddWindow { get; set; }
+        public List<MyLabel> ClientLabels { get; } = new();
 
         public MainWindow()
         {
@@ -33,7 +34,7 @@ namespace CRM
             ShowClients();
         }
 
-        private void ShowClients()
+        public void ShowClients()
         {
             foreach (Client cl in ClientManager.Clients)
             {
@@ -41,20 +42,87 @@ namespace CRM
             }
         }
 
-        public void CreateClient(Client cl)
+        public void UpdateClient(Client cl)
         {
-            CreateLabel(cl.ID, cl.Name, 0);
-            CreateLabel(cl.ID, cl.LastName, 1);
-            CreateLabel(cl.ID, cl.Email, 2);
-            CreateLabel(cl.ID, cl.PhoneNumber, 3);
-            CreateLabel(cl.ID, cl.Department, 4);
+            foreach(MyLabel label in ClientLabels)
+            {
+                if(label.Client.ID != cl.ID)
+                {
+                    continue;
+                }
+                switch(label.TableIndex)
+                {
+                    case 0:
+                        label.Content = cl.Name;
+                        break;
+                    case 1:
+                        label.Content = cl.LastName;
+                        break;
+                    case 2:
+                        label.Content = cl.Email;
+                        break;
+                    case 3:
+                        label.Content = cl.PhoneNumber;
+                        break;
+                    case 4:
+                        label.Content = cl.Department;
+                        break;
+                    case 5:
+                        label.Content = cl.Company;
+                        break;
+                    case 6:
+                        label.Content = cl.AgreementNumber;
+                        break;
+                    case 7:
+                        label.Content = cl.Title;
+                        break;
+                    case 8:
+                        label.Content = cl.DevelopTime;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
-        private void CreateLabel(int id, string content, int tableIndex)
+        public void CreateClient(Client cl)
+        {
+            CreateLabel(cl, cl.Name, 0);
+            CreateLabel(cl, cl.LastName, 1);
+            CreateLabel(cl, cl.Email, 2);
+            CreateLabel(cl, cl.PhoneNumber, 3);
+            CreateLabel(cl, cl.Department, 4);
+            CreateLabel(cl, cl.Company, 5);
+            CreateLabel(cl, cl.AgreementNumber, 6);
+            CreateLabel(cl, cl.Title, 7);
+            CreateLabel(cl, cl.DevelopTime, 8);
+        }
+
+        public void RemoveClient(Client cl)
+        {
+            List<MyLabel> toRemove = new();
+            foreach(MyLabel label in ClientLabels)
+            {
+                if (label.Client.ID != cl.ID)
+                {
+                    continue;
+                }
+                StackPanel parent = (StackPanel)label.Parent;
+                parent.Children.Remove(label);
+                toRemove.Add(label);
+            }
+            foreach(MyLabel label in toRemove)
+            {
+                ClientLabels.Remove(label);
+            }
+        }
+
+        private void CreateLabel(Client cl, string content, int tableIndex)
         {
             MyLabel xd = new()
             {
-                ID = id
+                Client = cl,
+                TableIndex = tableIndex
             };
             xd.Content = content;
             xd.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
@@ -89,14 +157,27 @@ namespace CRM
                 case 4:
                     _ = DepPanel.Children.Add(xd);
                     break;
+                case 5:
+                    _ = FirPanel.Children.Add(xd);
+                    break;
+                case 6:
+                    _ = ConPanel.Children.Add(xd);
+                    break;
+                case 7:
+                    _ = TitlePanel.Children.Add(xd);
+                    break;
+                case 8:
+                    _ = TimePanel.Children.Add(xd);
+                    break;
                 default:
                     return;
             }
+            ClientLabels.Add(xd);
         }
 
         private void InformationClick(object sender, RoutedEventArgs e)
         {
-            _ = MessageBox.Show("Autor: Damian");
+            _ = MessageBox.Show("Autor: damian5466\n\nKod Źródłowy:\nhttps://github.com/damian5466/CRM");
         }
 
         private void AddClientClick(object sender, RoutedEventArgs e)
@@ -131,12 +212,16 @@ namespace CRM
         private void DoubleClickLabel(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton != MouseButton.Left) return;
-            _ = MessageBox.Show("Double clicked!");
+            ClearAddWindow(true);
+            MyLabel label = (MyLabel)sender;
+            AddWindow = new AddClient(label.Client);
+            AddWindow.Show();
         }
     }
 
     public class MyLabel : Label
     {
-        public int ID { get; set; }
+        public Client Client { get; set; }
+        public int TableIndex { get; set; }
     }
 }

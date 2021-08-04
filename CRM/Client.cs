@@ -45,6 +45,10 @@ namespace CRM
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Department { get; set; }
+        public string Company { get; set; }
+        public string AgreementNumber { get; set; }
+        public string Title { get; set; }
+        public string DevelopTime { get; set; }
         public List<string> Notes { get; set; }
     }
 }

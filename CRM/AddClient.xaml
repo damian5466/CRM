@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRM"
         mc:Ignorable="d"
-        Title="Dodaj dane klienta" Height="550" Width="375" Background="Black" ResizeMode="CanMinimize"
+        Title="Dodaj dane klienta" Height="780" Width="375" Background="Black" ResizeMode="CanMinimize"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -295,11 +295,20 @@
         <TextBox x:Name="EmailField" HorizontalAlignment="Center" Height="18" Margin="0,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Background="Black" Foreground="White"/>
         <Label x:Name="PhoneLabel" Content="Numer Telefonu" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Height="27" Width="96" Foreground="White"/>
         <TextBox x:Name="PhoneField" HorizontalAlignment="Center" Height="18" Margin="0,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Background="Black" Foreground="White"/>
-        <Label x:Name="NoteLabel" Content="Notatka" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Height="27" Width="60" Foreground="White"/>
-        <TextBox x:Name="NoteField" HorizontalAlignment="Center" Height="179" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Background="Black" Foreground="White" Margin="0,290,0,0"/>
-        <Button x:Name="BackButton" Content="Wstecz" HorizontalAlignment="Left" Margin="14,474,0,0" VerticalAlignment="Top" Height="30" Width="80" Background="#FF303030" Foreground="White" Click="BackButton_Click"/>
-        <Button x:Name="AddButton" Content="Dodaj" HorizontalAlignment="Left" Margin="266,474,0,0" VerticalAlignment="Top" Height="30" Width="80" Background="#FF303030" Foreground="White" Click="AddButton_Click"/>
+        <Label x:Name="NoteLabel" Content="Notatka" HorizontalAlignment="Left" Margin="10,463,0,0" VerticalAlignment="Top" Height="27" Width="60" Foreground="White"/>
+        <TextBox x:Name="NoteField" HorizontalAlignment="Center" Height="179" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Background="Black" Foreground="White" Margin="0,495,0,0" AcceptsReturn="True"/>
+        <Button x:Name="BackButton" Content="Wstecz" HorizontalAlignment="Left" Margin="14,690,0,0" VerticalAlignment="Top" Height="30" Width="80" Background="#FF303030" Foreground="White" Click="BackButton_Click"/>
+        <Button x:Name="AddButton" Content="Dodaj" HorizontalAlignment="Left" Margin="266,690,0,0" VerticalAlignment="Top" Height="30" Width="80" Background="#FF303030" Foreground="White" Click="AddButton_Click"/>
+        <Button x:Name="RemoveButton" Content="Usuń" HorizontalAlignment="Left" Margin="137,690,0,0" VerticalAlignment="Top" Height="30" Width="80" Background="#FF303030" Foreground="White" Click="RemoveButton_Click"/>
         <Label x:Name="DepLabel" Content="Dział" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Height="27" Width="40" Foreground="White"/>
+        <Label x:Name="FirLabel" Content="Firma" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Height="27" Width="40" Foreground="White"/>
+        <TextBox x:Name="FirField" HorizontalAlignment="Center" Height="18" Margin="0,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Background="Black" Foreground="White"/>
+        <Label x:Name="NrLabel" Content="Nr. Umowy" HorizontalAlignment="Left" Margin="10,308,0,0" VerticalAlignment="Top" Height="27" Width="70" Foreground="White"/>
+        <TextBox x:Name="NrField" HorizontalAlignment="Center" Height="18" Margin="0,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Background="Black" Foreground="White"/>
+        <Label x:Name="TitleLabel" Content="Temat" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Height="27" Width="48" Foreground="White"/>
+        <TextBox x:Name="TitleField" HorizontalAlignment="Center" Height="18" Margin="0,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Background="Black" Foreground="White"/>
+        <Label x:Name="TimeLabel" Content="Czas opracowania" HorizontalAlignment="Left" Margin="10,408,0,0" VerticalAlignment="Top" Height="27" Width="110" Foreground="White"/>
+        <TextBox x:Name="TimeField" HorizontalAlignment="Center" Height="18" Margin="0,440,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Background="Black" Foreground="White"/>
         <ComboBox Style="{DynamicResource ComboBoxDark}" x:Name="DepBox" HorizontalAlignment="Center" Margin="0,231,0,0" VerticalAlignment="Top" Width="330" Background="Black" BorderBrush="Black" Foreground="White">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem">
