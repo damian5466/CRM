@@ -37,6 +37,12 @@ namespace CRM
             Clients = JsonSerializer.Deserialize<List<Client>>(File.ReadAllText(FilePath));
         }
     }
+
+    public class Config
+    {
+        public static string ConfigPath { get; } = ClientManager.AppDirPath + @"\config.json";
+    }
+
     public class Client
     {
         public int ID { get; set; }
