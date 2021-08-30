@@ -207,6 +207,23 @@ namespace CRM
         private void RightClickLabel(object sender, MouseButtonEventArgs e)
         {
             Clipboard.SetText(((MyLabel)sender).Content.ToString());
+            ContextMenu = new();
+            MyMenuItem item = new()
+            {
+                Header = "Usuń",
+                Client = ((MyLabel)sender).Client
+            };
+            item.Click += ContextDeleteClick;
+            ContextMenu.Items.Add(item);
+            ContextMenu.IsOpen = true;
+        }
+
+        private void ContextDeleteClick(object sender, RoutedEventArgs e)
+        {
+            MyMenuItem item = (MyMenuItem)sender;
+            RemoveClient(item.Client);
+            ClientManager.Clients.Remove(item.Client);
+            ClientManager.SaveClients();
         }
 
         private void DoubleClickLabel(object sender, MouseButtonEventArgs e)
@@ -223,5 +240,10 @@ namespace CRM
     {
         public Client Client { get; set; }
         public int TableIndex { get; set; }
+    }
+
+    public class MyMenuItem : MenuItem
+    {
+        public Client Client { get; set; }
     }
 }
